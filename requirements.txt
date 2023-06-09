@@ -40,7 +40,7 @@ jupyterlab-widgets @ file:///C:/b/abs_38ad427jkz/croot/jupyterlab_widgets_167905
 kiwisolver==1.4.4
 markdown-it-py @ file:///C:/b/abs_a5bfngz6fu/croot/markdown-it-py_1684279915556/work
 MarkupSafe @ file:///C:/ci/markupsafe_1654508077284/work
-matplotlib==3.7.1
+matplotlib==3.5.1
 matplotlib-inline @ file:///C:/ci/matplotlib-inline_1661915841596/work
 mdurl @ file:///C:/Windows/TEMP/abs_3197pzpjbi/croots/recipe/mdurl_1659716032440/work
 mkl-fft==1.3.6
