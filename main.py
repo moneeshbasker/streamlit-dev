@@ -54,6 +54,7 @@ filtered_df = df[(df['Date'] >= pd.to_datetime(selected_dates[0])) & (df['Date']
 
 # Display the total volume and value sales at the manufacturer level
 manufacturer_sales = filtered_df.groupby('Manufacturer')[['Volume', 'Value']].sum().sort_values(by='Value', ascending=False)
+manufacturer_sales.rename(columns={"Volume":"Total Sales Volume","Value":"Total Sales Value"})
 st.dataframe(manufacturer_sales, width=800)
 st.markdown("---")
 
