@@ -5,18 +5,18 @@ import pyarrow.parquet as pq
 import seaborn as sns
 import streamlit as st
 
-st.markdown("""
-<style>
-.css-nqowgj.e1ewe7hr3
-{
-    visibility: hidden;
-}
-.css-h5rgaw.e1g8pov61
-{
-    visibility: hidden;
-}
-</style>
-""", unsafe_allow_html=True)
+# st.markdown("""
+# <style>
+# .css-nqowgj.e1ewe7hr3
+# {
+#     visibility: hidden;
+# }
+# .css-h5rgaw.e1g8pov61
+# {
+#     visibility: hidden;
+# }
+# </style>
+# """, unsafe_allow_html=True)
 
 st.markdown("<h1 style='text-align: center;'>Deep Dive</h1>", unsafe_allow_html=True)
 
