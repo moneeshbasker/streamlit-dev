@@ -84,6 +84,39 @@ if authentication_status:
 
     selected_rows = grid_return["selected_rows"]
 
+    # if selected_rows:
+    #     new_df = pd.DataFrame(selected_rows)
+
+    #     columns_to_select = ["Name", "revenue", "cost", "profit"]
+    #     new_df = new_df[columns_to_select]
+
+    #     numeric_columns = ["revenue", "cost", "profit"]
+    #     new_df[numeric_columns] = new_df[numeric_columns].apply(pd.to_numeric)
+
+    #     melted_df = new_df.melt(id_vars="Name", value_vars=numeric_columns, var_name="Category", value_name="Amount")
+
+    #     st.markdown("Comparison of Selected Scenarios")
+
+    #     fig = go.Figure()
+    #     for category in numeric_columns:
+    #         fig.add_trace(go.Bar(
+    #             x=melted_df['Name'],
+    #             y=melted_df['Amount'][melted_df['Category'] == category],
+    #             name=category
+    #         ))
+
+    #     fig.update_layout(
+    #         xaxis_title="Name",
+    #         yaxis_title="Amount",
+    #         title="Scenario Comparison",
+    #         barmode='group',
+    #         xaxis_tickangle=-45,
+    #         autosize=True,
+    #     )
+
+    #     st.plotly_chart(fig)
+    # else:
+    #     st.write("Please select rows in the table above to display the plot.")
     if selected_rows:
         new_df = pd.DataFrame(selected_rows)
 
@@ -98,16 +131,18 @@ if authentication_status:
         st.markdown("Comparison of Selected Scenarios")
 
         fig = go.Figure()
-        for category in numeric_columns:
+
+        for name in new_df['Name']:
+            filtered_df = melted_df[melted_df['Name'] == name]
             fig.add_trace(go.Bar(
-                x=melted_df['Name'],
-                y=melted_df['Amount'][melted_df['Category'] == category],
-                name=category
+                x=filtered_df['Category'],
+                y=filtered_df['Amount'],
+                name=name
             ))
 
         fig.update_layout(
-            xaxis_title="Name",
-            yaxis_title="Amount",
+            # xaxis_title="Category",
+            yaxis_title="Value ($)",
             title="Scenario Comparison",
             barmode='group',
             xaxis_tickangle=-45,
@@ -117,3 +152,4 @@ if authentication_status:
         st.plotly_chart(fig)
     else:
         st.write("Please select rows in the table above to display the plot.")
+
